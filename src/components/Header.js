@@ -16,10 +16,18 @@ const Header = () => {
     <div className="navbar bg-primary text-primary-content">
   <Link to='/' className="btn btn-ghost normal-case text-xl">Awsome Auth</Link>
   <Link className="btn btn-ghost normal-case text-xl" to='/home'>Home</Link>
+  <Link className="btn btn-ghost normal-case text-xl" to='/orders'>Orders</Link>
   <Link className="btn btn-ghost normal-case text-xl" to='/login'>Log in</Link>
   <Link className="btn btn-ghost normal-case text-xl" to='/register'>Register</Link>
     {user?.email  &&  <span>welcome, {user.email}</span>}
-    <button onClick={handleSignOut} className="btn btn-sm">log out</button>
+
+    {
+          user?.email ?
+        <button onClick={handleSignOut} className="btn btn-sm">log out</button>
+        : <Link to='/login'>
+            <button className='btn btn-small '>Log In</button>
+        </Link>
+    }
 
 </div>
         </div>
